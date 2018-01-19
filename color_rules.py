@@ -14,11 +14,14 @@ import cv2
 
 '''Load image'''
 im = Image.open('/Users/Nicki/Desktop/01_1_front copy.jpg')
-hsv_image = cv2.cvtCol(im, COLOR_BGR2HSV)
 
 '''Pull rgb values for all pixels in image'''
 pixels = list(im.getdata())
-print(pixels)
+
+# for x in pixels:
+#     hsv_pixels = []
+#     hsv_pixels.append(cv2.cvtColor(x, cv2.COLOR_BGR2HSV))
+# print(hsv_pixels)
 
 # hsv_values = []
 # for data in pixels:
@@ -60,9 +63,9 @@ three_rgb = new_dict[top_three]
 
 
 '''Convert top three colors to HSV'''
-color_one = colorsys.rgb_to_hsv(one_rgb[0],one_rgb[1],one_rgb[2])
-color_two = colorsys.rgb_to_hsv(two_rgb[0],two_rgb[1],two_rgb[2])
-color_three = colorsys.rgb_to_hsv(three_rgb[0],three_rgb[1],three_rgb[2])
+color_one = colorsys.bgr_to_hsv(one_rgb[0],one_rgb[1],one_rgb[2])
+color_two = colorsys.bgr_to_hsv(two_rgb[0],two_rgb[1],two_rgb[2])
+color_three = colorsys.bgr_to_hsv(three_rgb[0],three_rgb[1],three_rgb[2])
 
 print(color_one, color_two, color_three)
 

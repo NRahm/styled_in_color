@@ -31,9 +31,16 @@ print(top_left, bot_right)
 # image, contours, hier = cv2.findContours(threshed_img, cv2.RETR_TREE,
 #                 cv2.CHAIN_APPROX_SIMPLE)
 
-cv2.rectangle(img,(36, 0),(96, 123),(0,0,255))
-cv2.imshow("contours", img)
-cv2.waitKey(10000)
-cv2.destroyAllWindows()
+# cv2.rectangle(img,(36, 0),(96, 123),(0,0,255))
+# cv2.imshow("contours", img)
+# cv2.waitKey(10000)
+# cv2.destroyAllWindows()
+#
+# cv2.destroyAllWindows()
 
-cv2.destroyAllWindows()
+
+'''Messing with colorspace conversions'''
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+for x in hsv:
+    hsv_pixels = []
+    hsv_pixels.append(x)
