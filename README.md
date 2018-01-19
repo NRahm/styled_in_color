@@ -38,10 +38,11 @@ Methodology:
 
   ![Starting Image](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/sample_image_original.jpg)
 
-  ![Bounding Box Location]https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg
+  ![Bounding Box Location](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg)
 
 
-**SHOW IMAGE OF COLOR WHEEL***
+![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)
+
 
 Libraries Used:
   Opencv2 was utilized for image manipulation.
