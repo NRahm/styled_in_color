@@ -32,12 +32,12 @@ As with all fashion, it is completely acceptable for anyone to make up their own
 
 **Methodology:**
 
-  -Find contours
-  -Establish Bounding Box
-  -Extract pixel color values from both inside and outside bounding box.
-  -Convert color values from bgr space to hsv space
-  -Calculate most frequently appearing hsv values, excluding top three background colors
-  -Run top three colors through algorithm to decide if they are coordinated or not.
+  1. Find contours
+  2. Establish Bounding Box
+  3. Extract pixel color values from both inside and outside bounding box.
+  4. Convert color values from bgr space to hsv space
+  5. Calculate most frequently appearing hsv values, excluding top three background colors
+  6. Run top three colors through algorithm to decide if they are coordinated or not.
 
   ![Starting Image](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/sample_image_original.jpg)
 
