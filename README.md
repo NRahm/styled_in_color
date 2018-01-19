@@ -28,9 +28,21 @@ Color Coordination:
     This model does take into a few additional fashion rules:
       -Red & Green should not be worn together unless it's Christmas
 
+Methodology:
+  -Find contours
+  -Establish Bounding Box
+  -Extract pixel color values from both inside and outside bounding box.
+  -Convert color values from bgr space to hsv space
+  -Calculate most frequently appearing hsv values, excluding top three background colors
+  -Run top three colors through algorithm to decide if they are coordinated or not.
 
-Models Used:
-  **Histogram of colors**
+  ![Starting Image](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/sample_image_original.jpg)
 
+  ![Bounding Box Location]https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg
+
+
+**SHOW IMAGE OF COLOR WHEEL***
 
 Libraries Used:
+  Opencv2 was utilized for image manipulation.
+  Numpy was utilized for vector and matrix manipulation.
