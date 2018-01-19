@@ -11,12 +11,14 @@ import cv2
 # cv2.waitKey(2000)
 # cv2.destroyAllWindows()
 #
-# cv2.cvtCol(image, COLOR_BGR2HSV)
+
 '''Load image'''
-im = Image.open('/Users/Nicki/Desktop/download.jpg')
+im = Image.open('/Users/Nicki/Desktop/01_1_front copy.jpg')
+hsv_image = cv2.cvtCol(im, COLOR_BGR2HSV)
 
 '''Pull rgb values for all pixels in image'''
 pixels = list(im.getdata())
+print(pixels)
 
 # hsv_values = []
 # for data in pixels:
@@ -28,6 +30,7 @@ counter = Counter(pixels)
 
 '''Turn rgb counts into dictionary'''
 color_occurence = dict(counter)
+# print(color_occurence)
 
 # color_occurence_v2 = {}
 # for key, value in color_occurence.items():
@@ -48,7 +51,7 @@ ordered_pixels = list((OrderedDict(sorted(new_dict.items(),reverse=True))))
 top_one = ordered_pixels[0]
 top_two = ordered_pixels[1]
 top_three = ordered_pixels[2]
-print(new_dict[top_one],new_dict[top_two],new_dict[top_three])
+# print(new_dict[top_one],new_dict[top_two],new_dict[top_three])
 
 '''Reveal rgb values for top three colors'''
 one_rgb = new_dict[top_one]
