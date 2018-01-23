@@ -34,25 +34,26 @@ As with all fashion, it is completely acceptable for anyone to make up their own
 
   1. Find contours
   2. Establish Bounding Box
-  3. Extract pixel color values from both inside and outside bounding box.
-  4. Convert color values from bgr space to hsv space
+  3. Extract pixel color values from both inside and outside bounding box
+  4. Convert color values from rgb space to hsv space
   5. Calculate most frequently appearing hsv values, excluding top three background colors
-  6. Run top three colors through algorithm to decide if they are coordinated or not.
+  6. Run top three colors through algorithm to calculate if they are coordinated or not.
 
-  ![Starting Image](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/sample_image_original.jpg)
+![Starting Image](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/sample_image_original.jpg)
 
-  ![Bounding Box Location](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg)
+![Bounding Box Location](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg)
 
+![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)adb89f9e82567fd
 
-   ![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)adb89f9e82567fd
+**Results**
+
+HELP ME!!!!
+
+Does really well if you are wearing all red, otherwise it wants you to be wearing blue.
+May need to change to top two colors. 
 
 **Libraries Used:**
 
-<<<<<<< HEAD
-**Libraries Used:**
-
-=======
->>>>>>> d36b34c827874e4e0caa81d73adb89f9e82567fd
   Opencv2 was utilized for image manipulation.
   Numpy was utilized for vector and matrix manipulation.
 

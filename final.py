@@ -33,6 +33,8 @@ import colorsys
     #     h = h
     #
     # return(h,s,v)
+'''FUNCTIONS'''
+
 '''Convert HSV to Color Name'''
 def assign_color(hue):
     if hue <= 10 or hue == 355:
@@ -71,9 +73,12 @@ def assign_color(hue):
     elif hue >= 221 and hue <= 240:
         color = "Blue"
         est_hue = 231
-    elif hue >= 241 and hue <= 280:
-        color = "Blue-Magenta"
+    elif hue >= 241 and hue <= 255:
+        color = "Cool-Blue"
         est_hue = 261
+    elif hue >= 256 and hue <= 280:
+        color = "Cool-Magenta"
+        est_hue = 268
     elif hue >= 281 and hue <= 320:
         color = "Magenta"
         est_hue = 261
@@ -83,17 +88,22 @@ def assign_color(hue):
     else:
         color = "black or white"
 
-    return(color)
+    return(color, est_hue)
 
+'''Convert rgb to hsv'''
 def rgb_hsv(RGB):
     h, s, v = colorsys.rgb_to_hsv(RGB[0], RGB[1], RGB[2])
-    h = h*360
-    s = s*100
-    v = (v/255)*100
+    h = (h * 360)
+    s = s/255 * 100
+    v = (v/255) * 100
     return (int(h),int(s),int(v))
 
+'''Image path'''
+
+image_path = ('/Users/Nicki/Desktop/test_images/04_1_front.jpg')
+
 '''Read in and scale down image with cv2'''
-img = cv2.pyrDown(cv2.imread('/Users/Nicki/Desktop/test_images/03_7_additional.jpg', cv2.IMREAD_UNCHANGED))
+img = cv2.pyrDown(cv2.imread(image_path, cv2.IMREAD_UNCHANGED))
 
 '''Turn image into B/W to find contours'''
 ret, threshed_img = cv2.threshold(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY),
@@ -118,7 +128,7 @@ bottom = list((x2,y2))
 #print(top,bottom)
 
 '''Read in image with PIL for pixel analysis'''
-im = Image.open('/Users/Nicki/Desktop/test_images/03_7_additional.jpg')
+im = Image.open(image_path)
 pix = im.load()
 
 width = im.size[0] #define W and H
@@ -138,24 +148,35 @@ for y in range(top_left[1], bottom_right[1]): #each pixel has coordinates
         else:
             image_pixels[color] = [(x,y)]
 
-values = 0
-for key in image_pixels.keys():
-    values += len(image_pixels[key])
+print(image_pixels.keys())
+'''Calculate overall pixels being extracted in bounding box'''
+# values = 0
+# for key in image_pixels.keys():
+#     values += len(image_pixels[key])
+#
+# print(values)
 
-print(values)
-'''
-x = image_pixels.values()
-print(len(x))
-'''
+new_list = [item[0] for item in image_pixels.keys()]
+
+trial = set(new_list)
+
+top_colors = []
+for x in trial:
+    color, est_hue = assign_color(x)
+    top_colors.append([color,est_hue])
+
+print(top_colors)
 
 '''Show image with generated bounding box'''
-cv2.rectangle(img,top_left,bottom_right,(0,0,255))
-cv2.imshow("contours", img)
-cv2.waitKey(1000)
-cv2.destroyAllWindows()
+# cv2.rectangle(img,top_left,bottom_right,(0,0,255))
+# cv2.imshow("contours", img)
+# cv2.waitKey(1000)
+# cv2.destroyAllWindows()
+#
+# cv2.destroyAllWindows()
 
-cv2.destroyAllWindows()
-
+''''Attempt to take background pixels out of dictionary.
+    Do I need thise?'''
 # '''Dictionary of left_background pixels and values'''
 # pixels = []
 # background = {}
@@ -176,11 +197,6 @@ cv2.destroyAllWindows()
 #         new_dict[key] = value
 
 '''Find top three colors'''
-
-# pixel_density = []
-# for k in sorted(image_pixels, key=lambda k:len(image_pixels[k]), reverse=True):
-#     pixel_density.append(k)
-
 first = (0,0)
 second = (0,0)
 thrid = (0,0)
@@ -200,9 +216,8 @@ pixel_density = [
     assign_color(first[0][0]),
     assign_color(second[0][0]),
     assign_color(third[0][0])
-]
+    ]
 
-print(pixel_density)
 
 ordered_colors = []
 
@@ -210,9 +225,9 @@ ordered_colors = []
 #     color = assign_color(value[0])
 #     ordered_colors.append(color)
 
-colors = set(ordered_colors)
-# print(pixel_density)
-# print(colors)
+colors = set(pixel_density)
+print(pixel_density)
+
 
 # first = ""
 # second = ""
