@@ -46,11 +46,11 @@ As with all fashion, it is completely acceptable for anyone to make up their own
 ![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)adb89f9e82567fd
 
 **Results**
+![Man in Purple](website)
+('Magenta', 261), ('Magenta', 261), ('Magenta', 261)
 
 HELP ME!!!!
-
-Does really well if you are wearing all red, otherwise it wants you to be wearing blue.
-May need to change to top two colors. 
+May need to change to top two colors.
 
 **Libraries Used:**
 
