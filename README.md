@@ -44,11 +44,15 @@ As with all fashion, it is completely acceptable for anyone to make up their own
   ![Bounding Box Location](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg)
 
 
-   ![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)
-
+   ![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)adb89f9e82567fd
 
 **Libraries Used:**
 
+<<<<<<< HEAD
+**Libraries Used:**
+
+=======
+>>>>>>> d36b34c827874e4e0caa81d73adb89f9e82567fd
   Opencv2 was utilized for image manipulation.
   Numpy was utilized for vector and matrix manipulation.
 
