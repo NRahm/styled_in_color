@@ -101,7 +101,7 @@ def rgb_hsv(RGB):
 
 '''Image path'''
 
-image_path = ('/Users/Nicki/Desktop/test_images/man_in_purple.jpg')
+image_path = ('/Users/Nicki/Desktop/test_images/04_1_front.jpg')
 
 '''Read in and scale down image with cv2'''
 img = cv2.imread(image_path, cv2.IMREAD_UNCHANGED)
@@ -185,7 +185,7 @@ for x in trial:
 cv2.rectangle(img,top_left,bottom_right,(255,0,0))
 print(top_left, bottom_right)
 cv2.imshow("contours", img)
-cv2.waitKey(50000)
+cv2.waitKey(10000)
 cv2.destroyAllWindows()
 
 cv2.destroyAllWindows()
