@@ -43,10 +43,15 @@ As with all fashion, it is completely acceptable for anyone to make up their own
 
 ![Bounding Box Location](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/bounding_box.jpg)
 
-![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)adb89f9e82567fd
+![HSV Colorwheel](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/color_wheel.jpg)
 
 **Results**
+
+
 ![Man in Purple](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/man_in_purple.jpg)
+
+
+
 ('Magenta', 261), ('Magenta', 261), ('Magenta', 261)
 
 HELP ME!!!!
