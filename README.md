@@ -51,8 +51,12 @@ As with all fashion, it is completely acceptable for anyone to make up their own
 ![Man in Purple](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/man_in_purple.jpg)
 
 
-
 ('Magenta', 261), ('Magenta', 261), ('Magenta', 261)
+
+
+![Lady in Red](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/red_bounding_box.jpg)
+
+('Red', 8), ('Orange or Brown', 31), ('Red', 8)
 
 HELP ME!!!!
 May need to change to top two colors.
