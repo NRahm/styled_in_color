@@ -185,7 +185,7 @@ for x in trial:
 cv2.rectangle(img,top_left,bottom_right,(255,0,0))
 print(top_left, bottom_right)
 cv2.imshow("contours", img)
-cv2.waitKey(1000)
+cv2.waitKey(50000)
 cv2.destroyAllWindows()
 
 cv2.destroyAllWindows()
