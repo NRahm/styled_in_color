@@ -47,3 +47,7 @@ Methodology:
 Libraries Used:
   Opencv2 was utilized for image manipulation.
   Numpy was utilized for vector and matrix manipulation.
+
+#MORE TIME#
+
+If I had more time, I would find a way to recognize faces and subtract those color values from the "outfit" values. For the first iteration of the model, I believed it was fair that a person's face, arms and legs were only a fraction of the outfit being analyzed.   

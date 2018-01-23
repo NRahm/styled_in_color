@@ -6,34 +6,50 @@ from collections import OrderedDict
 import colorsys
 import cv2
 
-# image = cv2.imread('/Users/Nicki/Desktop/download.jpg')
-# cv2.imshow('image', image)
-# cv2.waitKey(2000)
-# cv2.destroyAllWindows()
-#
 
-'''Load image'''
+'''Load image PIL'''
 im = Image.open('/Users/Nicki/Desktop/01_1_front copy.jpg')
+width, height = im.size
+print(width,height)
+# hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
+#
+#
+# for x in hsv:
+#     hsv_pixels = []
+#     hsv_pixels.append(x)
+#
+#
+# new_list = []
+# for i in hsv_pixels:
+#     for j in i:
+#         new_list.append(j)
+#
+# final_list = [list(i) for i in new_list]
 
 '''Pull rgb values for all pixels in image'''
 pixels = list(im.getdata())
-
-# for x in pixels:
-#     hsv_pixels = []
-#     hsv_pixels.append(cv2.cvtColor(x, cv2.COLOR_BGR2HSV))
-# print(hsv_pixels)
-
+#
+# # for x in pixels:
+# #     hsv_pixels = []
+# #     hsv_pixels.append(cv2.cvtColor(x, cv2.COLOR_BGR2HSV))
+# # print(hsv_pixels)
+#
 # hsv_values = []
 # for data in pixels:
-#     hsv_values = colorsys.rgb_to_hsv(data[0][0][0])
+#     hsv_values = cv2.COLOR_BGR2HSV(data[0][0][0])
 #     print(np.asarray(hsv_values))
-#
+
+# '''Convert to HSV'''
+# for item in pixels:
+#     pixels_hsv = []
+#     hsv_value = cv2.COLOR_BGR2HSV(item)
+#     pixels_hsv.append(hsv_value)
+
 '''Count occurences of each rgb  value'''
 counter = Counter(pixels)
 
 '''Turn rgb counts into dictionary'''
 color_occurence = dict(counter)
-# print(color_occurence)
 
 # color_occurence_v2 = {}
 # for key, value in color_occurence.items():
@@ -46,7 +62,6 @@ new_dict = {}
 for key, values in color_occurence.items():
     new_dict[values] = key
 
-
 '''Order dictionary in order of highest appearing color to least frequent color'''
 ordered_pixels = list((OrderedDict(sorted(new_dict.items(),reverse=True))))
 
@@ -54,29 +69,88 @@ ordered_pixels = list((OrderedDict(sorted(new_dict.items(),reverse=True))))
 top_one = ordered_pixels[0]
 top_two = ordered_pixels[1]
 top_three = ordered_pixels[2]
-# print(new_dict[top_one],new_dict[top_two],new_dict[top_three])
 
-'''Reveal rgb values for top three colors'''
-one_rgb = new_dict[top_one]
-two_rgb = new_dict[top_two]
-three_rgb = new_dict[top_three]
+'''Reveal rgb values for top three colors, NEEDS TO BE WRITTEN
+   one = purple, two = lime green, three = hot pink
+'''
+one_rgb = (153,50,204)
+# one_bgr = one_rgb[::-1]
+two_rgb = (0,255,0)
+# two_bgr = two_rgb[::-1]
+three_rgb = (255,20,147)
+# three_bgr = three_rgb[::-1]
 
-
-'''Convert top three colors to HSV'''
-color_one = colorsys.bgr_to_hsv(one_rgb[0],one_rgb[1],one_rgb[2])
-color_two = colorsys.bgr_to_hsv(two_rgb[0],two_rgb[1],two_rgb[2])
-color_three = colorsys.bgr_to_hsv(three_rgb[0],three_rgb[1],three_rgb[2])
-
-print(color_one, color_two, color_three)
-
-
-# '''Assign red, green, blue values'''
-# r,g,b = pixels[0]
+'''Doesn't seem like I need to normalize'''
+# def normalize_rgb(color):
+#     normal_num = []
+#     for item in color:
+#         normal_num.append(item/255)
 #
-# '''Convert rgb to hsv'''
-# h,s,v = colorsys.rgb_to_hsv(r,g,b)
-# print(h,s,v)
+# '''These are RGB values!! Convert top three colors to HSV'''
+# color_one = colorsys.rgb_to_hsv((one_rgb[0]/255),(one_rgb[1]/255),(one_rgb[2]/255))
+# color_two = colorsys.rgb_to_hsv((two_rgb[0]/255),(two_rgb[1]/255),(two_rgb[2]/255))
+# color_three = colorsys.rgb_to_hsv((three_rgb[0]/255),(three_rgb[1]/255),(three_rgb[2]/255))
+# print(color_one, color_two, color_three)
 
+
+'''Changing RGB to HSV line by line'''
+def rgb_hsv(RGB):
+    r, g, b = RGB[0], RGB[1], RGB[2]
+    lowest = min(r,g,b)
+    highest = max(r,g,b)
+    v = highest
+    delta = highest - lowest
+
+    if highest:
+        s = delta / highest
+    if r == highest:
+        h = 60*((g-b)/delta)
+    elif g == highest:
+        h = 60*(((b-r) / delta)+2)
+    else:
+        h = 60*(((r-g) / delta)+4)
+
+    if h < 0:
+        h = h +360
+    else:
+        h = h
+
+    return(hsv)
+
+'''16 color bins, need to write in black & white'''
+def assign_color(hue):
+    if hue <=10 or hue == 355:
+        color = "Red"
+    if hue >= 11 and hue <= 20:
+        color = "Red-Orange"
+    if hue >= 21 and hue <= 40:
+        color = "Orange or Brown"
+    if hue >= 41 and hue <= 50:
+        color = "Orange-Yellow"
+    if hue >= 51 and hue <= 60:
+        color = "Yellow"
+    if hue >= 61 and hue <= 80:
+        color = "Yellow-Green"
+    if hue >= 81 and hue <= 140:
+        color = "Green"
+    if hue >= 141 and hue <= 169:
+        color = "Green-Cyan"
+    if hue >= 170 and hue <= 200:
+        color = "Cyan"
+    if hue >= 201 and hue <= 220:
+        color = "Cyan-Blue"
+    if hue >= 221 and hue <= 240:
+        color = "Blue"
+    if hue >= 241 and hue <= 280:
+        color = "Blue-Magenta"
+    if hue >= 281 and hue <= 320:
+        color = "Magenta"
+    if hue >= 321 and hue <= 330:
+        color = "Magenta-Pink"
+    if hue >= 331 and hue <= 354:
+        color = "black or white"
+
+    return color
 # pixel_occurences = (list(color_occurence.values()))
 # sorted_pixels = sorted(pixel_occurences, reverse=True)
 #
