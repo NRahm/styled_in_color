@@ -6,68 +6,17 @@ from collections import OrderedDict
 from PIL import Image
 import colorsys
 
-'''If distance within 20is degrees:
-   Print: Approved Outfit. Your color choices are analogous.
-          The top two occuring colors in your outfit are analogous to each together.
-          Your outfit appears harmonious and is pleasing to the eye.
-          You should flaunt your style.
-
-  If distance between is certain degrees(180ish):
-  Print: Approved Outfit. Your color choices are complementary.
-        The top two occuring colors in your outfit are complementary to each other,
-        you have put together an appealing and eye catching outfit.
-        You should flaunt your style.
-
-  If distances are extreme:
-  Print:Approved Outfit. Your color choice involves black or white and is safe.
-        One of the two top occuring colors in your outfit are presumed to be black
-         or white. All colors may be worn with black or white. You are styled well,
-         but not bold. You do you!
-
-  If distances are disharmounious:
-  Print: Unapproved Outfit. Your color choices are not complementary.
-         The algorithm doesn't believe your outfit to be pleasing to the eye.
-         It is recommended you change your outfit before heading out; however, if
-         you love your look: you do you!
-  '''
-
-# def rgb_hsv(RGB):
-#     r, g, b = RGB[0], RGB[1], RGB[2]
-#     if r == 255 and g == 255 and b == 255:
-#         color = 'white'
-#     elif r == 0 and g == 0 and b == 0:
-#         color = 'black'
-#     else:
-#         lowest = min(r,g,b)
-#         highest = max(r,g,b)
-#         v = highest
-#         delta = highest - lowest
-#         if highest > 0 and lowest > 0:
-#             if highest:
-#                 s = delta / highest
-#             if r == highest:
-#                 h = 60*((g-b)/delta)
-#             elif g == highest:
-#                 h = 60*(((b-r) / delta)+2)
-#             else:
-#                 h = 60*(((r-g) / delta)+4)
-
-    # if h < 0:
-    #     h = h +360
-    # else:
-    #     h = h
-    #
-    # return(h,s,v)
 '''FUNCTIONS'''
 
 '''Convert HSV to Color Name'''
 def assign_color(hue):
-    if hue <= 10 or hue >= 331:
-        color = "Red"
-        if hue >= 331:
-            est_hue = 355
-        else:
+    if hue <= 10 or (hue >= 327 and hue!= 500):
+        if hue <= 10:
+            color = "Red"
             est_hue = 8
+        else:
+            color = "Red"
+            est_hue = 355
     elif hue >= 11 and hue <= 20:
         color = "Red-Orange"
         est_hue = 16
@@ -127,7 +76,7 @@ def rgb_hsv(RGB):
 
 '''Image path'''
 
-image_path = ('/Users/Nicki/Desktop/test_images/doll-clown-4.jpg')
+image_path = ('/Users/Nicki/Desktop/test_images/05_7_additional.jpg')
 
 '''Read in image with cv2'''
 img = cv2.imread(image_path, cv2.IMREAD_UNCHANGED)
@@ -153,7 +102,6 @@ y2 = bottom_right[1]
 top = list((x1,y1))
 bottom = list((x2,y2))
 
-
 '''Read in image with PIL for pixel analysis'''
 im = Image.open(image_path).convert("RGB")
 pix = im.load()
@@ -170,22 +118,24 @@ for y in range(top_left[1], bottom_right[1]): #each pixel has coordinates
     for x in range(top_left[0], bottom_right[0]):
         RGB = pix[x, y]
         color = rgb_hsv(RGB)
-        if color[2] > 80 or color[1] < 25:
-          color = (500,500,500)
-        if color in image_pixels:
-            image_pixels[(color)].append((x,y))
+        if color[2] < 80 and color[1] > 25:
+            if color in image_pixels:
+                image_pixels[color].append((x,y))
+                #image_pixels[RGB].append((x,y))
+            else:
+                image_pixels[color] = [(x,y)]
+                #image_pixels[RGB] = [(x,y)]
         else:
-            image_pixels[color] = [(x,y)]
+            color = (500,500,500)
 
-
-'''Sort by length of value'''
-
-pixel_list = []
-for key, value in image_pixels.items():
-    listed_values = (key, len(value))
-    pixel_list.append(listed_values)
-
-ordered_hsv_values = sorted(pixel_list, key=lambda x: x[1], reverse=False)
+'''Attempt to Sort by length of value'''
+#
+# pixel_list = []
+# for key, value in image_pixels.items():
+#     listed_values = (key, len(value))
+#     pixel_list.append(listed_values)
+#
+# ordered_hsv_values = sorted(pixel_list, key=lambda x: x[1], reverse=False)
 #
 # '''Calculate overall pixels being extracted in bounding box'''
 # # values = 0
@@ -259,32 +209,33 @@ print(pixel_density)
 colors = list(set(pixel_density))
 print(colors)
 
-
 '''Color Differences'''
 distance = abs(colors[0][1]-colors[1][1])
 print(distance)
 
-if distance < 75:
-    outfit_prediction = "Analogous Colors"
-    print("Approved Outfit. Your color choices are analogous." /n
-           "The top two occuring colors in your outfit are analogous to each together."
-           "Your outfit appears harmonious and is pleasing to the eye."
-           "You should flaunt your style.")
-elif distance > 180 and distance <200:
-    outfit_prediction = "Complementary Colors"
-    print("Approved Outfit. Your color choices are complementary." /n
-          "The top two occuring colors in your outfit are complementary to each other,"
-          "you have put together an appealing and eye catching outfit."
-          "You should flaunt your style.")
-elif distance > 365:
-    outfit_prediction = "Safe With Black or White"
-    print("Unapproved Outfit. Your color choices are not complementary."
-           "The algorithm doesn't believe your outfit to be pleasing to the eye."
-           "It is recommended you change your outfit before heading out; however, if
-           "you love your look: you do you!")
-else:
-    outfit_prediction = "Disharmounious Colors"
-    print("Unapproved Outfit. Your color choices are not complementary." /n
-           "The algorithm doesn't believe your outfit to be pleasing to the eye.
-           "It is recommended you change your outfit before heading out; however, if
-           "you love your look: you do you!")
+# if distance < 75:
+#     outfit_prediction = "Analogous Colors"
+#     print("Approved Outfit. Your color choices are analogous." /n
+#            "The top two occuring colors in your outfit are analogous to each together."
+#            "Your outfit appears harmonious and is pleasing to the eye."
+#            "You should flaunt your style.")
+# elif distance > 180 and distance <200:
+#     outfit_prediction = "Complementary Colors"
+#     print("Approved Outfit. Your color choices are complementary." /n
+#           "The top two occuring colors in your outfit are complementary to each other,"
+#           "you have put together an appealing and eye catching outfit."
+#           "You should flaunt your style.")
+# elif distance > 365:
+#     outfit_prediction = "Safe With Black or White"
+#     print("Unapproved Outfit. Your color choices are not complementary."
+#            "The algorithm doesn't believe your outfit to be pleasing to the eye."
+#            "It is recommended you change your outfit before heading out; however, if
+#            "you love your look: you do you!")
+# else:
+#     outfit_prediction = "Disharmounious Colors"
+#     print("Unapproved Outfit. Your color choices are not complementary." /n
+#            "The algorithm doesn't believe your outfit to be pleasing to the eye.
+#            "It is recommended you change your outfit before heading out; however, if
+#            "you love your look: you do you!")
+#
+# print(outfit_prediction)
