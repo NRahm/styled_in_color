@@ -76,7 +76,7 @@ def rgb_hsv(RGB):
 
 '''Image path'''
 
-image_path = ('/Users/Nicki/Desktop/test_images/05_7_additional.jpg')
+image_path = ('/Users/Nicki/Desktop/test_images/variety.jpg')
 
 '''Read in image with cv2'''
 img = cv2.imread(image_path, cv2.IMREAD_UNCHANGED)
@@ -101,6 +101,7 @@ y2 = bottom_right[1]
 
 top = list((x1,y1))
 bottom = list((x2,y2))
+
 
 '''Read in image with PIL for pixel analysis'''
 im = Image.open(image_path).convert("RGB")
@@ -158,7 +159,7 @@ for y in range(top_left[1], bottom_right[1]): #each pixel has coordinates
 '''Show image with generated bounding box'''
 cv2.rectangle(img,top_left,bottom_right,(255,0,0))
 cv2.imshow("contours", img)
-cv2.waitKey(2000)
+cv2.waitKey(200)
 cv2.destroyAllWindows()
 
 cv2.destroyAllWindows()
@@ -210,32 +211,36 @@ colors = list(set(pixel_density))
 print(colors)
 
 '''Color Differences'''
-distance = abs(colors[0][1]-colors[1][1])
-print(distance)
+if len(colors) > 1:
+    distance = abs(colors[0][1]-colors[1][1])
+else:
+    distance = 10000
 
-# if distance < 75:
-#     outfit_prediction = "Analogous Colors"
-#     print("Approved Outfit. Your color choices are analogous." /n
-#            "The top two occuring colors in your outfit are analogous to each together."
-#            "Your outfit appears harmonious and is pleasing to the eye."
-#            "You should flaunt your style.")
-# elif distance > 180 and distance <200:
-#     outfit_prediction = "Complementary Colors"
-#     print("Approved Outfit. Your color choices are complementary." /n
-#           "The top two occuring colors in your outfit are complementary to each other,"
-#           "you have put together an appealing and eye catching outfit."
-#           "You should flaunt your style.")
-# elif distance > 365:
-#     outfit_prediction = "Safe With Black or White"
-#     print("Unapproved Outfit. Your color choices are not complementary."
-#            "The algorithm doesn't believe your outfit to be pleasing to the eye."
-#            "It is recommended you change your outfit before heading out; however, if
-#            "you love your look: you do you!")
-# else:
-#     outfit_prediction = "Disharmounious Colors"
-#     print("Unapproved Outfit. Your color choices are not complementary." /n
-#            "The algorithm doesn't believe your outfit to be pleasing to the eye.
-#            "It is recommended you change your outfit before heading out; however, if
-#            "you love your look: you do you!")
-#
-# print(outfit_prediction)
+if distance < 75:
+    outfit_prediction = "Analogous Colors"
+    print(outfit_prediction)
+    # print("Approved Outfit. Your color choices are analogous. \n
+    #        The top two occuring colors in your outfit are analogous to each together. Your outfit appears harmonious and is pleasing to the eye. \n
+    #        "You should flaunt your style.")
+
+elif distance > 180 and distance <200:
+    outfit_prediction = "Complementary Colors"
+    print(outfit_prediction)
+    # print("Approved Outfit. Your color choices are complementary. \n
+    #       "The top two occuring colors in your outfit are complementary to each other, you have put together an appealing and eye catching outfit. \n
+    #       "You should flaunt your style.")
+
+elif distance > 365:
+    outfit_prediction = "Safe With Black or White"
+    print(outfit_prediction)
+    # print("Unapproved Outfit. Your color choices are not complementary."
+    #        "The algorithm doesn't believe your outfit to be pleasing to the eye."
+    #        "It is recommended you change your outfit before heading out; however, if
+    #        "you love your look: you do you!")8
+else:
+    outfit_prediction = "Inharmonious Colors"
+    print(outfit_prediction)
+    # print("Unapproved Outfit. Your color choices are not complementary." /n
+    #        "The algorithm doesn't believe your outfit to be pleasing to the eye.
+    #        "It is recommended you change your outfit before heading out; however, if
+    #        "you love your look: you do you!")
