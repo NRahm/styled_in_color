@@ -102,7 +102,6 @@ y2 = bottom_right[1]
 top = list((x1,y1))
 bottom = list((x2,y2))
 
-
 '''Read in image with PIL for pixel analysis'''
 im = Image.open(image_path).convert("RGB")
 pix = im.load()

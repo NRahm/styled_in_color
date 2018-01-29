@@ -60,7 +60,7 @@ As with all fashion, it is completely acceptable for anyone to make up their own
 **Libraries Used:**
 
   1. Opencv2 was utilized for image manipulation.
-  2. Python Imaging Library was used to access RGB values for pixels of interest.
+  2. Python Imaging Library (PIL) was used to access RGB values for pixels of interest.
   3. Numpy was utilized for vector and matrix manipulation.
 
 **Future:**
