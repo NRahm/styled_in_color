@@ -1,6 +1,6 @@
- # Styled in Color
+# Styled in Color
 
-**Vision:**
+## Vision:
 
 I desired a project that melded my two passions together: **fashion and data**.
 
@@ -10,7 +10,7 @@ The goal of this project is to **help those who struggle to put together outfits
 
 As with all fashion, it is completely acceptable for anyone to make up their own fashion rules. Wear what colors make you happy.
 
-**Key Findings:**
+## Key Findings:
 
 Working in the HSV color space leant itself well to binning simmilar colors together; however, its classification of balck, white, and red is unreliable. 
 
@@ -20,7 +20,7 @@ The RGB color space has millions of possibilities and although the HSV color spa
 
 Average to subpar image quality worked well for my model. 
 
-**Methodology:**
+## Methodology:
 
 I began this project with thousands of neatly posed images with a light grey background. 
 
@@ -33,11 +33,11 @@ I then iterated over the following steps:
 5. **Calculate** the **distance** between the top two occurring colors to determine if the color combination is pleasing to the eye 
 
 
-**Working in Colorspaces:**
+## Working in Colorspaces:
 
   In order to capture the top three colors in the images, the RGB values were transcribed in to HSV values. The HSV color wheel naturally divides itself into 24 different colors. These 24 colors were grouped into sets of two and hand labeled. All the colors that were captured from the model were then binned into the 12 labeled colors.
 
-**Working in Color Spaces:**
+## Working in Color Spaces:
 
 Red, Green, Blue (RGB) is a color space in which colors are assigned three different values based on how much of each color is present. 
 
@@ -50,10 +50,11 @@ The Hue, Saturation, Value (HSV) color space assigns three values to colors as w
 
 HSV is challenged by extremely dark or light shades and can be tricked by red. 
 
-**Color Coordination:**
+## Color Coordination:
+
 Considering this project is built more for those who struggle to put together their own visually pleasing outfits and not for people with strong confidence in their established style, I based my outfit analysis on the basic principles of color theory.
 
-# Astatically Pleasing Color Combinations
+### Astatically Pleasing Color Combinations
 
 ![Analogous Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/analogous_colors.png)
 
@@ -72,7 +73,7 @@ Two colors directly across from each ofther on the color wheel.
 
 
 
-# Unastatically Pleasing Color Combinations
+### Unastatically Pleasing Color Combinations
 
 ![Inharmonious Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/non_complementary_colors.png)
 
@@ -82,30 +83,43 @@ Two colors that are approximately 90• apart on the color wheel.
 
 Basic fashion rules, such as seasonality and only wearing green and red together on December 25th were ignored.
 
-**Image Manipulation:**
+## Image Manipulation:
 
 The images in my dataset did come with supplied bounding box coordinates, but I found these x,y coordinates did not always generate an area of interest that appropriately captured as much of the outfits as possible.
 
 I utilized Canny edge detection in the OpenCV library to establish bounding boxes that more reliably included nearly all the outfit in the images. 
 
-#Original Image
+### Original Image
+
 
 ![Image Without Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/raw_image.jpg)
 
-#Bounding Box According to Dataset Labels
+
+
+## Bounding Box According to Dataset Labels
+
+
 ![Provided Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/provided_bb.jpg)
 
-#Coded Bounding Box
+
+
+## Coded Bounding Box
+
 
 ![Hand Coded Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/coded_bg.png)
 
-**Example:**
+
+
+## Example:
 
 ![Image 1](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/05_7_additional.jpg)
 
+
 ![Resulting Output](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/harmonious_colors.png)
 
-**Future:**
+
+
+## Future:
 
 I will continue improving Styled in Color by continuing to advance the color algorithms so that they become better at distinguishing the subtleties in different tones and colors.
 
@@ -113,10 +127,10 @@ Eventually I will make my project into a working website where people may upload
 
 Someday, I would like to devise a neural network that will be able to ensure even more background colors are excluded from the color analysis: ideally, making it possible to run the algorithm on outfits regardless of what is in the background.
 
-**Libraries Used:**
+## Libraries Used:
 
   1. Opencv2 was utilized for image manipulation.
   2. Python Imaging Library (PIL) was used to access RGB values for pixels of interest.
   3. Numpy was utilized for vector and matrix manipulation.
 
-### Sources: DeepFashion Database
+#### Sources: DeepFashion Database
