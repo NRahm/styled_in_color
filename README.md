@@ -37,7 +37,6 @@ I then iterated over the following steps:
 
   In order to capture the top three colors in the images, the RGB values were transcribed in to HSV values. The HSV color wheel naturally divides itself into 24 different colors. These 24 colors were grouped into sets of two and hand labeled. All the colors that were captured from the model were then binned into the 12 labeled colors.
 
-## Working in Color Spaces:
 
 Red, Green, Blue (RGB) is a color space in which colors are assigned three different values based on how much of each color is present. 
 
@@ -64,11 +63,15 @@ Grouping of colors near or within the same family on the color wheel.
 
 
 
+
+
 ![Complementary Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/complementary_colors.png)
 
 
 
 Two colors directly across from each ofther on the color wheel.
+
+
 
 
 
@@ -80,6 +83,8 @@ Two colors directly across from each ofther on the color wheel.
 
 
 Two colors that are approximately 90• apart on the color wheel.
+
+
 
 Basic fashion rules, such as seasonality and only wearing green and red together on December 25th were ignored.
 
