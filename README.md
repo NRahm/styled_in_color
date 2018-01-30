@@ -56,14 +56,27 @@ Considering this project is built more for those who struggle to put together th
 #Astatically Pleasing Color Combinations
 
 ![Analogous Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/analogous_colors.png)
+
+
+
 Grouping of colors near or within the same family on the color wheel.
 
+
+
 ![Complementary Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/complementary_colors.png)
+
+
+
 Two colors directly across from each ofther on the color wheel.
+
+
 
 #Unastatically Pleasing Color Combinations
 
 ![Inharmonious Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/non_complementary_colors.png)
+
+
+
 Two colors that are approximately 90• apart on the color wheel.
 
 Basic fashion rules, such as seasonality and only wearing green and red together on December 25th were ignored.
