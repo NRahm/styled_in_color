@@ -41,29 +41,29 @@ I then iterated over the following steps:
 
 Red, Green, Blue (RGB) is a color space in which colors are assigned three different values based on how much of each color is present. 
 
-![RGB Color Space]()
+![RGB Color Space](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/RGB_color_solid_cube.png)
 
 The Hue, Saturation, Value (HSV) color space assigns three values to colors as well, except that in HSV the colors are based on how much white and black are present, as well as the degree on the color wheel at which point the human eye tends to identify the true color to be. 
 
-![HSV Color Space]()
-![HSV Color Degree]()
+![HSV Color Space](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/HSV_color_solid_cube.png)
+![HSV Color Degree](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/hue_values.png)
 
 HSV is challenged by extremely dark or light shades and can be tricked by red. 
 
 **Color Coordination:**
 Considering this project is built more for those who struggle to put together their own visually pleasing outfits and not for people with strong confidence in their established style, I based my outfit analysis on the basic principles of color theory.
 
-#Astatically Pleasing Color Combinations#
+#Astatically Pleasing Color Combinations
 
-![Analogous Colors]()
+![Analogous Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/analogous_colors.png)
 Grouping of colors near or within the same family on the color wheel.
 
-![Complementary Colors]()
+![Complementary Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/complementary_colors.png)
 Two colors directly across from each ofther on the color wheel.
 
-#Unastatically Pleasing Color Combinations#
+#Unastatically Pleasing Color Combinations
 
-![Inharmonious Colors]()
+![Inharmonious Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/non_complementary_colors.png)
 Two colors that are approximately 90• apart on the color wheel.
 
 Basic fashion rules, such as seasonality and only wearing green and red together on December 25th were ignored.
@@ -74,18 +74,20 @@ The images in my dataset did come with supplied bounding box coordinates, but I 
 
 I utilized Canny edge detection in the OpenCV library to establish bounding boxes that more reliably included nearly all the outfit in the images. 
 
-#Original Image#
+#Original Image
 
-![Image Without Bounding Box]()
+![Image Without Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/raw_image.jpg)
 
-#Bounding Box According to Dataset Labels#
-![Provided Bounding Box]()
+#Bounding Box According to Dataset Labels
+![Provided Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/provided_bb.jpg)
 
-#Coded Bounding Box#
+#Coded Bounding Box
 
-![Hand Coded Bounding Box]()
+![Hand Coded Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/coded_bg.png)
 
 **Results:**
+
+![Image 1](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/05_7_additional.jpg)
 
 
 
