@@ -53,7 +53,7 @@ HSV is challenged by extremely dark or light shades and can be tricked by red.
 **Color Coordination:**
 Considering this project is built more for those who struggle to put together their own visually pleasing outfits and not for people with strong confidence in their established style, I based my outfit analysis on the basic principles of color theory.
 
-#Astatically Pleasing Color Combinations
+# Astatically Pleasing Color Combinations
 
 ![Analogous Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/analogous_colors.png)
 
@@ -71,7 +71,8 @@ Two colors directly across from each ofther on the color wheel.
 
 
 
-#Unastatically Pleasing Color Combinations
+
+# Unastatically Pleasing Color Combinations
 
 ![Inharmonious Colors](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/non_complementary_colors.png)
 
