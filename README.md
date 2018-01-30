@@ -10,7 +10,7 @@ The goal of this project is to **help those who struggle to put together outfits
 
 As with all fashion, it is completely acceptable for anyone to make up their own fashion rules. Wear what colors make you happy.
 
-**Key Findings**
+**Key Findings:**
 
 Working in the HSV color space leant itself well to binning simmilar colors together; however, its classification of balck, white, and red is unreliable. 
 
@@ -82,7 +82,7 @@ Two colors that are approximately 90• apart on the color wheel.
 
 Basic fashion rules, such as seasonality and only wearing green and red together on December 25th were ignored.
 
-**Image Manipulation**
+**Image Manipulation:**
 
 The images in my dataset did come with supplied bounding box coordinates, but I found these x,y coordinates did not always generate an area of interest that appropriately captured as much of the outfits as possible.
 
@@ -99,11 +99,11 @@ I utilized Canny edge detection in the OpenCV library to establish bounding boxe
 
 ![Hand Coded Bounding Box](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/coded_bg.png)
 
-**Results:**
+**Example:**
 
 ![Image 1](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/05_7_additional.jpg)
 
-
+![Resulting Output](https://github.com/NRahm/styled_in_color/blob/master/data/read_me_photos/harmonious_colors.png)
 
 **Future:**
 
@@ -118,3 +118,5 @@ Someday, I would like to devise a neural network that will be able to ensure eve
   1. Opencv2 was utilized for image manipulation.
   2. Python Imaging Library (PIL) was used to access RGB values for pixels of interest.
   3. Numpy was utilized for vector and matrix manipulation.
+
+### Sources: DeepFashion Database
